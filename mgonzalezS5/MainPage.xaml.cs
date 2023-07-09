@@ -14,7 +14,7 @@ namespace mgonzalezS5
     public partial class MainPage : ContentPage
     {
         //Variables globales para el url, cliente y donde almacenamos temporalmente
-        private string url = "http://10.2.9.198/ws_uisrael/post.php";
+        private string url = "http://192.168.100.62/ws_uisrael/post.php";
         private HttpClient cliente = new HttpClient();
         private ObservableCollection<Estudiante> post;
 

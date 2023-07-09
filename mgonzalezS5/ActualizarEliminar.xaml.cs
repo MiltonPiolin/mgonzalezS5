@@ -13,7 +13,7 @@ namespace mgonzalezS5
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ActualizarEliminar : ContentPage
     {
-        private string url = "http://10.2.9.198/ws_uisrael/post.php?codigo=";
+        private string url = "http://192.168.100.62/ws_uisrael/post.php?codigo=";
         public ActualizarEliminar(int codigo, string nombre, string apellido, int edad)
         {
             InitializeComponent();
@@ -35,7 +35,8 @@ namespace mgonzalezS5
 
             cliente.UploadValues(url + txtCodigo.Text + "&nombre=" + txtNombre.Text + "&apellido=" + txtApellido.Text + "&edad=" + txtEdad.Text, "PUT", parametros);
 
-            DisplayAlert("ACTUALIZAR", "Dato actualizado con exito", "Cerrar");
+            var mensaje = "Dato actualizado con exito";
+            DependencyService.Get<Mensaje>().LongAlert(mensaje);
 
             Navigation.PushAsync(new MainPage());
         }
@@ -51,7 +52,8 @@ namespace mgonzalezS5
 
             cliente.UploadValues(url + txtCodigo.Text, "DELETE", parametros);
 
-            DisplayAlert("ELIMINAR", "Dato eliminado con exito", "Cerrar");
+            var mensaje = "Dato eliminado con exito";
+            DependencyService.Get<Mensaje>().LongAlert(mensaje);
 
             Navigation.PushAsync(new MainPage());
         }

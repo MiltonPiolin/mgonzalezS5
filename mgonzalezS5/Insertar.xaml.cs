@@ -13,7 +13,7 @@ namespace mgonzalezS5
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Insertar : ContentPage
     {
-        private string url = "http://10.2.9.198/ws_uisrael/post.php";
+        private string url = "http://192.168.100.62/ws_uisrael/post.php";
         public Insertar()
         {
             InitializeComponent();
@@ -34,7 +34,8 @@ namespace mgonzalezS5
 
                 cliente.UploadValues(url, "POST", parametros);
 
-                DisplayAlert("Insertado", "Dato Insertado con exito", "Cerrar");
+                var mensaje = "Dato ingresado con exito";
+                DependencyService.Get<Mensaje>().LongAlert(mensaje);
 
                 Navigation.PushAsync(new MainPage());
             }
